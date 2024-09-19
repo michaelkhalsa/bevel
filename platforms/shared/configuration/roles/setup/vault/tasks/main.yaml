@@ -48,5 +48,5 @@
       loop_var: bin_item
 
   - name: Test vault installation
-    command: "vault version"
+    command: "{{ vault.bin_directory }}/vault version"
     changed_when: false

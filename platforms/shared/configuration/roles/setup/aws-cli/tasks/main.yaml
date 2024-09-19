@@ -17,9 +17,24 @@
     tags:
       - aws_cli
 
+  - name: print awscli vars MVK
+    debug:
+      msg:
+       - "aws-cli.install_arch value is {{ aws_cli.install_arch }}"
+       - "destination path for download is {{ tmp_directory.path }}"
+    when: aws_cli.install_arch is defined
+
+  - name: print awscli missing vars MVK
+    debug:
+      msg:
+       - "aws-cli.install_arch value is NOT SET"
+       - "destination path for download is {{ tmp_directory.path }}"
+       - "bin directory is path for download is {{ aws_cli.bin_directory }}"
+    when: aws_cli.install_arch is undefined
+    
   - name: download aws cli
     get_url:
-      url: "https://awscli.amazonaws.com/awscli-exe-linux-{{ aws_cli.install_arch }}.zip"
+      url: "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" # https://awscli.amazonaws.com/awscli-exe-linux-{{ aws_cli.install_arch }}.zip MVK
       dest: "{{ tmp_directory.path }}"
       checksum: ""
     when: not aws_cli_stat_result.stat.exists
@@ -28,7 +43,7 @@
 
   - name: extract aws cli
     unarchive:
-      src: "{{ tmp_directory.path }}/awscli-exe-linux-{{ aws_cli.install_arch }}.zip"
+      src: "{{ tmp_directory.path }}/awscli-exe-linux-aarch64.zip" # /awscli-exe-linux-{{ aws_cli.install_arch }}.zip MVK
       dest: "{{ tmp_directory.path }}"
       remote_src: yes
     when: not aws_cli_stat_result.stat.exists
@@ -51,10 +66,27 @@
     when: not aws_cli_stat_result.stat.exists
     tags:
       - aws_cli
+      
+         
+  - name: Print working directory before aws configure MVK
+    shell: 'pwd'
+    register: command_output
+  - debug:
+      var: command_output.stdout_lines
+ # - debug:
+ #     msg:
+  #     - "relative bin directory {{ aws_cli.bin_directory }}"
+      
+  - name: Debug aws version before aws configure MVK
+    shell: cd {{ aws_cli.bin_directory }}/
+     ./aws --version
+    register: command_output
+  - debug:
+      var: command_output.stdout_lines
+      
 
   - name: configuring aws
-    shell: |
-      cd {{ aws_cli.bin_directory }}/
+    shell: cd {{ aws_cli.bin_directory }}/
       ./aws configure set aws_access_key_id {{ aws_access_key }}
       ./aws configure set aws_secret_access_key {{ aws_secret_key }}
     changed_when: false

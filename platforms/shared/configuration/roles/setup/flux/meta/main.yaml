@@ -10,7 +10,7 @@ dependencies:
     vars:
       aws_authenticator:
         os: "{{ install_os }}"
-        arch: "{{ install_arch }}"
+        arch: "{{ install_arch_k8s }}"
         bin_directory: "{{ bin_install_dir }}"
         checksum: ""
       kubeconfig_path: "{{ item.k8s.config_file }}"
@@ -20,12 +20,12 @@ dependencies:
     vars:
       helm:
         os: "{{ install_os }}"
-        arch: "{{ install_arch }}"
+        arch: "{{ install_arch_k8s }}"
         bin_directory: "{{ bin_install_dir }}"
         checksum: ""
   - role: "kubectl"
     vars:
       kubectl:
         os: "{{ install_os }}"
-        arch: "{{ install_arch }}"
+        arch: "{{ install_arch_k8s }}"
         bin_directory: "{{ bin_install_dir }}"

@@ -18,6 +18,11 @@
   gather_facts: no
   no_log: "{{ no_ansible_log | default(false) }}"
   tasks:
+    - name: Print Start Deploy Network MVK
+      debug:
+        msg:
+          - "Begin Deploy Network playbook"
+  
     # delete build directory
     - name: Remove build directory
       file:
@@ -133,6 +138,6 @@
   vars: #These variables can be overriden from the command line
     privilege_escalate: false           #Default to NOT escalate to root privledges
     install_os: "linux"                 #Default to linux OS
-    install_arch:  "amd64"              #Default to amd64 architecture
-    bin_install_dir:  "~/bin"            #Default to /bin install directory for binaries
+    install_arch:  "arm64"              #Default to amd64 architecture MVK careful, this looks to also be used on controlled, chaning to arm64 for now so can install helm into local dir
+    bin_install_dir:  "/Users/michaelkhalsa/bevel/bin/"            # MVK "~/bin" Default to /bin install directory for binaries Changed to local dir
     add_new_org: 'false'                # Default to false as this is for main network creation

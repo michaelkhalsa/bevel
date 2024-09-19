@@ -15,6 +15,11 @@
   gather_facts: no
   no_log: "{{ no_ansible_log | default(false) }}"
   tasks:
+  - name: Print start k8s environment set setup MVK
+    debug:
+      msg:
+        - "Start of setting up k8s environment on the cluster"
+      
   # Setup flux
   - include_role:
       name:  setup/flux
@@ -34,6 +39,11 @@
     with_items: "{{ network.organizations }}"
     when: network.env.type != 'operator'
 
+  - name: Print end setup flex on k8s cluster MVK
+    debug:
+      msg:
+        - "End of setting up flex on k8s cluster"
+        
   # Setup ambassador edge stack (enabled for besu and quorum)
   - include_role:
       name: setup/edge-stack
@@ -102,8 +112,16 @@
     - network.prometheus is defined and network.prometheus.enabled == true
     - network.type == "besu"
 
+  - name: Print finish k8s environment set setup MVK
+    debug:
+      msg:
+        - "Finished setting up k8s environment on the cluster"
+        
+#MVK - this seems wrong, as should be amd 64
+#but when running, this is installing on local mac
   vars: #These variables can be overriden from the command line
-    privilege_escalate: false           #Default to NOT escalate to root privledges
+    privilege_escalate: true           #Default to NOT escalate to root privledges
     install_os: "linux"                 #Default to linux OS
-    install_arch:  "amd64"              #Default to amd64 architecture
-    bin_install_dir:  "~/bin"           #Default to ~/bin install directory for binaries
+    install_arch:  "aarch64"              #Default to amd64 architecture MVK amd64 --> arm64, try aarch64 if doesnt work for apple changed back to amd64 as for cluster
+    install_arch_k8s: "aarch64" # added by MVK as same arch was being used for controller and cluster
+    bin_install_dir:  "/Users/michaelkhalsa/hlf/bevel/bin" #"~/bin"           #Default to ~/bin install directory for binaries

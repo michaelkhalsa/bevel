@@ -19,7 +19,7 @@
       vars:
         kubectl:
           os: "{{ install_os }}"
-          arch: "{{ install_arch }}"
+          arch: "arm64" #MVK arm64 as aarch64 not recognized removed {{ install_arch }}
           bin_directory: "{{ bin_install_dir }}"
       with_items: "{{ network.organizations }}"
     - include_role:
@@ -27,7 +27,7 @@
       vars:
         helm:
           os: "{{ install_os }}"
-          arch: "{{ install_arch }}"
+          arch: "arm64" # MVK as aarch64 not recognzied when installing helm {{ install_arch }}"
           bin_directory: "{{ bin_install_dir }}"
       with_items: "{{ network.organizations }}"
     - include_role:
@@ -58,7 +58,8 @@
       with_items: "{{ network.organizations }}"
       when: "item.cloud_provider == 'aws'"
     vars: #These variables can be overriden from the command line
-      privilege_escalate: false           #Default to NOT escalate to root privledges
+      privilege_escalate: true           #Default to NOT escalate to root privledges
       install_os: "linux"                 #Default to linux OS
-      install_arch:  "amd64"              #Default to amd64 architecture
-      bin_install_dir:  "~/bin"           #Default to ~/bin install directory for binaries
+      install_arch:  "aarch64"              #Default to amd64 architecture MVK changed from amd64
+      bin_install_dir:  "/Users/michaelkhalsa/hlf/bevel/bin"           #Default to ~/bin install directory for binaries
+      #helm_bin_directory: "/opt/homebrew/bin/" #Added by MVK

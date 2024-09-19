@@ -8,8 +8,8 @@
 tmp_directory: "{{ lookup('env', 'TMPDIR') | default('/tmp',true) }}"
 
 default:
-  version: "1.27.0"
+  version: "1.31.0" #MVK changed from 1.27.0 to 1.31.0
   os: "linux"    # use "darwin" for MacOS X, "windows" for Windows
-  arch: "amd64"  # other possible values: "386","arm64","arm","ppc64le","s390x"
-  bin_directory: "~/bin"  
+  arch: "arm64"  # other possible values: "386","arm64","arm","ppc64le","s390x" MVK changed from amd64 to arm64
+  bin_directory: "/Users/michaelkhalsa/hlf/bevel/bin" #MVK changed directory
   checksum: ""

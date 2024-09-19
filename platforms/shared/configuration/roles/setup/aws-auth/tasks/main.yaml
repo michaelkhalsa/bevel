@@ -27,8 +27,7 @@
 
   - name: Install aws-authenticator
     get_url:
-      url: "https://amazon-eks.s3-us-west-2.amazonaws.com/{{ aws_authenticator.version | default(default.version) }}/{{ aws_authenticator.release_date | default(default.release_date) }}\
-      /bin/{{ aws_authenticator.os }}/{{ aws_authenticator.arch }}/aws-iam-authenticator"
+      url: "https://amazon-eks.s3-us-west-2.amazonaws.com/{{ aws_authenticator.version | default(default.version) }}/{{ aws_authenticator.release_date | default(default.release_date) }}\/bin/{{ aws_authenticator.os }}/{{ aws_authenticator.arch }}/aws-iam-authenticator"
       dest: "{{ aws_authenticator.bin_directory }}/aws-iam-authenticator"
       mode: 0755
       checksum: "{{ aws_authenticator.checksum | default(default.checksum) }}"
@@ -36,6 +35,12 @@
     tags:
       - aws_auth
 
+  - name: Echo Kube Connection Variables MVK
+    debug:
+      msg:
+       - "Kube config path is {{ kubeconfig_path }}"
+       - "Kube context is {{ kubecontext }}"
+      
   - name: Test Kubernetes connection
     k8s_info:
       kind: Pod

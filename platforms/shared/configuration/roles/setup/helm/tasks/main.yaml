@@ -12,7 +12,7 @@
 
   - name: check helm
     stat:
-      path: "{{ helm.bin_directory }}/helm"
+      path: "{{ helm.bin_directory }}/helm" # MVK changed from "{{ helm.bin_directory }}/helm"
     register: helm_stat_result
     tags:
       - helm
@@ -61,3 +61,4 @@
   - name: Test helm installation
     command: "helm version --client --short"
     changed_when: false
+    

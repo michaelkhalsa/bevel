@@ -36,7 +36,8 @@
     --path={{ git_path }} \
     --version=v{{ flux_version }} \
     --namespace=flux-{{ network.env.type }} \
-    --context={{ kubecontext }}
+    --context={{ kubecontext }} \
+    --kubeconfig=/Users/michaelkhalsa/hlf/bevel/build/config
   when: git_protocol == "https"
   environment:
     KUBECONFIG: "{{ item.k8s.config_file }}"
