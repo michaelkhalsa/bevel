@@ -1,0 +1,51 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJSjY5N2FiYVhrbFl3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TkRBNU1qZ3dOekl4TVRGYUZ3MHpOREE1TWpZd056STJNVEZhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUURjejdraHBCRVZvMDVabUVYV2NNSzBXSGhrZDNaeVJiNXJwRGxaamxqVGJ1d2hvSDN5SWpqYWlxVEcKZ1FnTTVUT0RoUjNtV2FZMWlpeUdRMHdqcUhSeEZVaUVpZzBMSnJUZkZvL0FuWlVwMEovMVBHUFc5RU5KTjNtQQpadTF1ckZxSnpHQ0xDSm9kcW1FUUVHa2JTWC82ZTUwKzFpWmFrSzhOQnkzcWZMNzk3SEZNN1dkNTU4L1ZraG9QCnVJcDRIMXA1N3ZuV2t6YWtKcWo1QkNpc0tMN3RFZ1A3aExzNjNyYUErWEhNOEk3UWd1R3J6Ry82bUx1NDVpTWIKS2xCa2FHUnBRcWZvSWFIaVRrTEhpdzM5ckdtSkYwR2plV0xwZHhoSGdzcDhpS3N1a1g2NXdNN0tkb0Z6bldnUQpqcXczVTFNYlFCMnVFNDRLQmdUOGVlZUphYjlmQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJUSlVqTkswTWZXQVU3Lzltcy9UbndrTjRUYTRqQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQUNacjc4YlBvSgpLRXdESDZjTnFKc2VVZzQxMHVKTjJLN2dXRyt2M05GN2J3M0E0dkpMYVBWbTNmNmt1d2tKNXpBNWR4WS9Vc1B4CjZqd3YzOUpqclBZZDlFVEk0Vm5yMjF6TGJIdllqdFgwN0x5TUdIb21vcVF2NnRBTlRVbllrK3RqQ2sxZFZ6M2YKalQ2NS81MUtsY1FiQVNubkdCUnBkMmFWQi9wNVZDQUNDWjkzaFpnNG9wWGV1V094ZGRlSFJ0YlB5RFI1ZjR6ZworcFZmSFBBN3ZqbnpnSWp6ZXBTOGFQZFNDeUYrL08rSDUyWDA0STZNM1J1NjJuNVIvRGFmSWZyMmppbHZUOXZSCkpaS0VTaWZoMTNFelpiYkNQV2xJYnMxZGlraWwxemhscktFNDM3cFZhQTFNVDc4QUR2cUR4QzJ1N1Q2dGd2alMKejU3OVRRMW1pVTgzCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    server: https://2ADAE1E91FC5D077FB3DF190F88ABAE4.gr7.eu-west-1.eks.amazonaws.com
+  name: arn:aws:eks:eu-west-1:881490114384:cluster/blockchain-cluster
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJSkh6RWtJNGoxQ1V3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TkRBNU1qa3dOakUyTlRKYUZ3MHpOREE1TWpjd05qSXhOVEphTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUMzZzU4M2JHaHU5Nk1sY0ZsRkRselJ3NUhlSEw5SFhOWEVidW5Udkgrc2xVeGlvdU92K1NyRmtwekIKS1lQQlNsSm5pbVdXRmVZNGF3U3pVVnJTcHdZbjBpd3E1azBlZFlPemtuUU8xcWNXUHlOcWZaL3R4cVl1MHZ3NgpPTVVxS09sb1BMOUZTVzM4aGdEWGgwdkRtWmExVlA2UzluL2k1alVSR1N3c3RxVi8wSUZueEF6M2Z5Vk95UkhCCnBPT3FsV1ZYN0RxZVhYZHU5Q05McjRJS3NoQWhCSzJ2YmZ0VjFCSHd3SmFueUtZYUtqeC9YVmhxcXFsVjZpZEYKTlNOeHhXQ05pSEkxdXQvTW1tdTJzZWlaaWNwN016ZUFUTDNtcWFUOCs4bkxDTkkweU1oVExiS2piTVlnZUFuRgpxbmVoSURsckhYSTdmUzVJZUxzOXFsb21BY3UzQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJTM0pQTlFkTzdza3FneEJpNmkrdE5Udk93SjJ6QVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ2FFVTNTQnd0bwpkaTB0VXdBTEs2eFZuUmpCS0dXdFRvY3Y0WHhIek9XUXpEWjFubkVhbVpDdEZOYSttUG9mSmlIVE1mcDMyd2pzCmhFMUw3Mk1lbHU2THlXOU5mRGZDS1h3OUEvTE90dnlKdHpidmJ1T0dVK3ZoL0ExTWxTSU5wQTRGc0RwMHQ0T3UKa1I5SEt2NDViZVVnKzl4cERTbjlhaklZaW9VZHV0M3p5UU44OEZKMjhCd1NVenBlbmpqNEU4bmljWmtJaEdhego3a3Bka0JNMEtRdlVhTTJRMFRjeU1mUlJCbFFXU2FPMzgyNnpjV2laTy9lMWdsc2FibWRmcG1RS1NETkVrZy9yCnZkTzFMT0l5ZjFFV1Q4K2VkRmpVZno3RjVtUit1dExXc1pNanY5QWVsbEROOVpnRDZsNWNDQmhTYTdjU25hWFUKTGRGZlBYQ0Z0SGluCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    server: https://86D15A46A94AA1809A6778449E8ECDC5.gr7.eu-west-1.eks.amazonaws.com
+  name: arn:aws:eks:eu-west-1:881490114384:cluster/hlf-cluster
+contexts:
+- context:
+    cluster: arn:aws:eks:eu-west-1:881490114384:cluster/blockchain-cluster
+    user: arn:aws:eks:eu-west-1:881490114384:cluster/blockchain-cluster
+  name: arn:aws:eks:eu-west-1:881490114384:cluster/blockchain-cluster
+- context:
+    cluster: arn:aws:eks:eu-west-1:881490114384:cluster/hlf-cluster
+    user: arn:aws:eks:eu-west-1:881490114384:cluster/hlf-cluster
+  name: arn:aws:eks:eu-west-1:881490114384:cluster/hlf-cluster
+current-context: arn:aws:eks:eu-west-1:881490114384:cluster/hlf-cluster
+kind: Config
+preferences: {}
+users:
+- name: arn:aws:eks:eu-west-1:881490114384:cluster/blockchain-cluster
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - --region
+      - eu-west-1
+      - eks
+      - get-token
+      - --cluster-name
+      - blockchain-cluster
+      - --output
+      - json
+      command: aws
+- name: arn:aws:eks:eu-west-1:881490114384:cluster/hlf-cluster
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - --region
+      - eu-west-1
+      - eks
+      - get-token
+      - --cluster-name
+      - hlf-cluster
+      - --output
+      - json
+      command: aws
