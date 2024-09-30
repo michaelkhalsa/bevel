@@ -22,11 +22,11 @@ spec:
       cluster:
         provider: aws
         cloudNativeServices: false
-        kubernetesUrl: https://EC95573970C0E2F1515CD35C29B0D795.gr7.eu-west-1.eks.amazonaws.com
+        kubernetesUrl: https://86D15A46A94AA1809A6778449E8ECDC5.gr7.eu-west-1.eks.amazonaws.com
       vault:
         type: hashicorp
         network: fabric
-        address: http://172.31.33.40:8200
+        address: http://ec2-3-254-84-201.eu-west-1.compute.amazonaws.com:8200
         authPath: devmanufacturer
         secretEngine: secretsv2
         secretPrefix: "data/devmanufacturer"
