@@ -1,0 +1,1 @@
+This repository stores artificates for creation of hlf-cluster on aws eks and is written to and read by flux agents on the cluster.
