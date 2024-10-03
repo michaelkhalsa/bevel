@@ -1,1 +1,0 @@
-This directory is used for artifacts by flux in dev version of hyperledger fabric network.
