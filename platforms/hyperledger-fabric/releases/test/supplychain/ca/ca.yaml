@@ -1,0 +1,58 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: ca
+  namespace: supplychain-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: ca
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-test
+        namespace: flux-test
+      chart: platforms/hyperledger-fabric/charts/fabric-ca-server   
+  values:
+    global:
+      serviceAccountName: vault-auth
+      cluster:
+        provider: aws
+        cloudNativeServices: false
+        kubernetesUrl: https://86D15A46A94AA1809A6778449E8ECDC5.gr7.eu-west-1.eks.amazonaws.com
+      vault:
+        type: hashicorp
+        network: fabric
+        address: http://ec2-3-254-84-201.eu-west-1.compute.amazonaws.com:8200
+        authPath: testsupplychain
+        secretEngine: secretsv2
+        secretPrefix: "data/testsupplychain"
+        role: vault-role
+        tls: false
+      proxy:
+        provider: none
+        externalUrlSuffix: develop.local.com
+
+    storage:
+      size: 512Mi
+      reclaimPolicy: "Delete"
+      volumeBindingMode: Immediate
+      allowedTopologies:
+        enabled: false
+
+    image:
+      alpineUtils: ghcr.io/hyperledger/bevel-alpine:latest
+      ca: ghcr.io/hyperledger/bevel-fabric-ca:latest
+      pullSecret: ""
+
+    server:
+      removeCertsOnDelete: true
+      tlsStatus: true
+      adminUsername: supplychain-admin
+      adminPassword: supplychain-adminpw
+      subject: "/C=GB/ST=London/L=London/O=Orderer/CN=ca.supplychain-net"
+      clusterIpPort: 7054
+
