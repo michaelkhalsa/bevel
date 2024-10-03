@@ -37,7 +37,7 @@
     --version=v{{ flux_version }} \
     --namespace=flux-{{ network.env.type }} \
     --context={{ kubecontext }} \
-    --kubeconfig=/Users/michaelkhalsa/hlf/bevel/build/config
+    --kubeconfig=/Users/michaelkhalsa/hlf/bevel/build/config # MVK
   when: git_protocol == "https"
   environment:
     KUBECONFIG: "{{ item.k8s.config_file }}"
@@ -55,6 +55,7 @@
     --version=v{{ flux_version }} \
     --namespace=flux-{{ network.env.type }} \
     --context={{ kubecontext }}
+    --kubeconfig=/Users/michaelkhalsa/hlf/bevel/build/config # MVK
   when: git_protocol == "ssh"
   environment:
     KUBECONFIG: "{{ item.k8s.config_file }}"
