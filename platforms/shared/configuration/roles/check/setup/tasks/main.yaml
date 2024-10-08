@@ -70,4 +70,4 @@
     VAULT_TOKEN: "{{ vault.root_token }}"
   ignore_errors: yes
   register: "{{ component_name }}_certs_created" #MVK
-  when: check == "{{ component_name }}_certs_created"
+  when: check == '_'.join(component_name,"certs_created") #MVK
