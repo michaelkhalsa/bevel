@@ -38,11 +38,16 @@
     --namespace=flux-{{ network.env.type }} \
     --context={{ kubecontext }} \
     --kubeconfig=/Users/michaelkhalsa/hlf/bevel/build/config # MVK
-  when: git_protocol == "https"
+ # register: flux_bootstrap_result #MVK when all orgs are on same cluster
+  when: 
+    - git_protocol == "https"
+   # - flux_bootstrap_result.rc != 0
   environment:
     KUBECONFIG: "{{ item.k8s.config_file }}"
   tags:
     - flux
+
+
 
 - name: Install flux cli and bootstrap flux v2
   shell: |

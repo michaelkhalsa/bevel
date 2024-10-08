@@ -61,6 +61,10 @@
   until: vault_result.failed == False
   when: check == "crypto_materials"
 
+# - name: Setting organization vault check fact #MVK
+#   ansible.builtin.set_fact: 
+#     component_vault_cart_check: "component_name.join('_certs_created')"
+
 # This task check if certs exists in vault.
 - name: check if certs exists in vault.
   shell: |
@@ -69,5 +73,5 @@
     VAULT_ADDR: "{{ vault.url }}"
     VAULT_TOKEN: "{{ vault.root_token }}"
   ignore_errors: yes
-  register: component_name.join("_certs_created") #MVK
-  when: check == component_name.join("_certs_created") #MVK
+  register: certs_created
+  when: check == "certs_created"
