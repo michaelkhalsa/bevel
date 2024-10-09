@@ -48,6 +48,24 @@
   register: get_gitcred
   when: check == "git_credentials"
 
+
+#Added by MVK
+- name: check if certs exists in vault. MVK
+  shell: |
+    vault kv get -field={{ vault_field }} {{ vault_path }}
+  environment:
+    VAULT_ADDR: "{{ vault.url }}
+    VAULT_TOKEN: "{{ vault.root_token }}"
+  ignore_errors: yes
+  register: certs_created
+  when: check == "certs_created"
+  debug:
+    var: certs_created
+
+
+
+
+
 # This task waits until certs are stored in vault.
 - name: Wait for certs to be created.
   shell: |
