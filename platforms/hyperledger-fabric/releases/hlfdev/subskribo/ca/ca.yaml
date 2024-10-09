@@ -53,6 +53,6 @@ spec:
       tlsStatus: true
       adminUsername: subskribo-admin
       adminPassword: subskribo-adminpw
-      subject: "''"'"'/C=BE/ST=Limburg/L=Lummens/O=Subskribo/CN=ca.subskribo-net/Business Registration Number=BE0753953284'"'"''"
+      subject: "/C=BE/ST=Limburg/L=Lummens/O=Subskribo/CN=ca.subskribo-net"
       clusterIpPort: 7054
 
