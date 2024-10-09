@@ -109,7 +109,7 @@
     name: "{{ playbook_dir }}/../../shared/configuration/roles/check/setup"
   vars:
     vault_field: "server_key"
-    vault_path: "{{ vault.secret_path | default('secretv2') }}/{{ network.env.type }}{{ org_name }}/orderers/{{ orderer.name }}-tls"
+    vault_path: "{{ vault.secret_path | default('secretsv2') }}/{{ network.env.type }}{{ org_name }}/orderers/{{ orderer.name }}-tls" #MVK fixed type secretv2 --> secretsv2
     check: "crypto_materials"
   loop: "{{ org.services.orderers }}"
   loop_control:
