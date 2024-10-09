@@ -54,7 +54,7 @@
   shell: |
     vault kv get -field={{ vault_field }} {{ vault_path }}
   environment:
-    VAULT_ADDR: "{{ vault.url }}
+    VAULT_ADDR: "{{ vault.url }}"
     VAULT_TOKEN: "{{ vault.root_token }}"
   ignore_errors: yes
   register: certs_created
