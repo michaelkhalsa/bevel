@@ -50,7 +50,7 @@
 
 
 #Added by MVK
-- name: check if certs exists in vault. MVK
+- name: check if certs exists in vault MVK
   shell: |
     vault kv get -field={{ vault_field }} {{ vault_path }}
   environment:
@@ -59,15 +59,16 @@
   ignore_errors: yes
   register: certs_created
   when: check == "certs_created"
+
+- name: print certs_created MVK
   debug:
     var: certs_created
 
 
 
 
-
 # This task waits until certs are stored in vault.
-- name: Wait for certs to be created.
+- name: Wait for certs to be created in vault
   shell: |
     vault kv get -field={{ vault_field }} {{ vault_path }}
   environment:
@@ -77,7 +78,7 @@
   retries: "{{ network.env.retry_count}}"
   delay: 30
   until: vault_result.failed == False
-  when: check == "crypto_materials"
+  when: check == "vault_result" #MVK Changed crypto_materials to vault_result Appears to have been a bug
 
 # - name: Setting organization vault check fact #MVK
 #   ansible.builtin.set_fact: 
