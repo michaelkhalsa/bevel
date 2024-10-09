@@ -1,0 +1,52 @@
+global:
+  version: 2.5.4
+  serviceAccountName: vault-auth
+  cluster:
+    provider: aws
+    cloudNativeServices: false
+  vault:
+    type: hashicorp
+    network: fabric
+    address: http://ec2-3-254-84-201.eu-west-1.compute.amazonaws.com:8200
+    authPath: hlfdevsubskribo
+    secretEngine: secretsv2
+    secretPrefix: "data/hlfdevsubskribo"
+    role: vault-role
+    tls: false
+  proxy:
+    provider: none
+    externalUrlSuffix: develop.local.com
+
+image:
+  alpineUtils: ghcr.io/hyperledger/bevel-alpine:latest
+  fabricTools: ghcr.io/hyperledger/bevel-fabric-tools
+  pullSecret: ""
+
+organizations:
+  - name: subskribo
+    orderers:
+    - name: orderer1
+      ordererAddress: orderer1.subskribo-net:7050
+    peers:
+    - name: peer0
+      peerAddress: peer0.subskribo-net:7051
+    - name: peer1
+      peerAddress: peer1.subskribo-net:7051
+
+consensus: raft
+
+
+channels:
+ 
+ 
+  - name: allchannel
+    consortium: SubskriboConsortium
+    orderers: 
+      - subskribo
+    participants:
+      - subskribo
+
+settings:
+  generateGenesis: True 
+  removeConfigMapOnDelete: false
+
